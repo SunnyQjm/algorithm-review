@@ -32,8 +32,9 @@
 
 import collections
 
+
 class Solution:
-    def def maxSlidingWindow(self, nums, k):
+    def maxSlidingWindow(self, nums, k):
         """
 
         (knowledge)
@@ -54,11 +55,59 @@ class Solution:
             https://leetcode-cn.com/problems/sliding-window-maximum/solution/shi-pin-jie-xi-shuang-duan-dui-lie-hua-dong-chuang/
         """
 
+        def easyEnqueue(queue, num, k):
+
+            # 当前队列中的元素数量和窗口大小一致，此时要入队需要额外处理（保证队列中的元素个数小于等于窗口数量）
+            if len(queue) == k:
+                # 此时要入队，肯定要先出队一个元素，将最左边的元素出队
+                queue.popleft()
+
+                # maxValue 记录本次调整后窗口内的最大值，初始置为将要入队的元素
+                # maxValue 记录本次调整后窗口内的最大值元素在队列中的下标，初始置为队列的大小（表示将要入队的元素的位置）
+                maxValue, maxIndex = num, len(queue)
+
+                # 通过一轮循环，找到最大值和最大值的索引
+                for index, v in enumerate(queue):
+                    if v > maxValue:
+                        maxValue = v
+                        maxIndex = index
+
+                # 将最大值以左的所有元素出队（当前窗口最大值以左的元素已经用不到了，没有必要保留）
+                for index in range(maxIndex):
+                    queue.popleft()
+
+            # 如果当前队列不为空，依次判断队列中的元素是否小于等于将要入队的元素，如果是则出队
+            while queue:
+                if queue[0] <= num:
+                    queue.popleft()
+                else:
+                    break
+
+            # 将要入队的元素入队
+            queue.append(num)
+
         # 特判，当数组小于等于窗口大小时，不需要滑动，直接返回数组的最大值即可
         if len(nums) <= k:
-            return max(nums):
+            return [max(nums)]
 
         # queue用来存储当前窗口的元素（不一定是全部元素，窗口内最大值以左的元素都出队了）
         # res用来存储最终的结果（每个窗口的最大值）
         queue, res = collections.deque(), []
 
+        # 先将前k-1个元素入队
+        for i in range(k - 1):
+            easyEnqueue(queue, nums[i], k)
+
+        # 从第k个元素开始，每入队一个元素，都得到一个当前窗口的最大值（队头元素）
+        for i in range(k - 1, len(nums)):
+            easyEnqueue(queue, nums[i], k)
+            res.append(queue[0])
+
+        return res
+
+
+if __name__ == '__main__':
+    solution = Solution()
+    print(solution.maxSlidingWindow([1, 3, -1, -3, 5, 3, 6, 7], 3), "= \n[3, 3, 5, 5, 6, 7]")
+    print(solution.maxSlidingWindow([1, 3, 1, 2, 0, 5], 3), "= \n[3, 3, 2, 5]")
+    print(solution.maxSlidingWindow([9, 10, 9, -7, -4, -8, 2, -6], 5), "= \n[10, 10, 9, 2]")
