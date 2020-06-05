@@ -50,7 +50,8 @@ class Solution:
         3. 初始是，先用步骤2的方法，入队k-1个元素，从第k个元素开始，每次入队完，队首的元素即为当前窗口的最大值。
 
 
-        PS: 关于上述算法的流程，这边有一个leetcode官方制作的动画演示：https://leetcode-cn.com/problems/sliding-window-maximum/solution/shi-pin-jie-xi-shuang-duan-dui-lie-hua-dong-chuang/
+        PS: 关于上述算法的流程，这边有一个leetcode官方制作的动画演示：
+            https://leetcode-cn.com/problems/sliding-window-maximum/solution/shi-pin-jie-xi-shuang-duan-dui-lie-hua-dong-chuang/
         """
 
         # 特判，当数组小于等于窗口大小时，不需要滑动，直接返回数组的最大值即可
