@@ -1,24 +1,26 @@
 #!/usr/bin/env python
 # coding=utf-8
 
-############################################################################
-# 乱序字符串检查
+##############################################################################
+# Leetcode 242 有效的字母异位词
 #
-# 乱序字符串是指一个字符串只是另一个字符串的重新排列。例如，'heart' 和 'earth' 就是乱序字符串。 
-#  'python' 和'typhon' 也是。
-# 
-# 为了简单起见，我们假设所讨论的两个字符串具有相等的长度，并且他们由26个小写字母集合组成。
-#  我们的目标是写一个布尔函数，它将两个字符串做参数并返回它们是不是乱序。
-############################################################################
+# 给定两个字符串 s 和 t ，编写一个函数来判断 t 是否是 s 的字母异位词。
+#
+# 示例 1:
+#   输入: s = "anagram", t = "nagaram"
+#   输出: true
+#
+# 示例 2:
+#   输入: s = "rat", t = "car"
+#   输出: false
+#
+#
+# PS: 这题就是第二次课（chapter2）提到的乱序字符串的题目
+##############################################################################
 
 
 class Solution:
-    
-    ###################################################
-    # 此处省略逐字比较，麻烦性能还差，主要是太多难记2333
-    ###################################################
-
-    def anagramSolution(self, s1, s2):
+    def isAnagram(self, s1, s2):
         """
         排序对比法
 
@@ -41,7 +43,7 @@ class Solution:
                 return False
         return True
 
-    def anagramSolution2(self, s1, s2):
+    def isAnagram2(self, s1, s2):
         """
         字符统计对比法(Knowledge)
 
@@ -56,14 +58,14 @@ class Solution:
         # 其实这个不是必须的，只是在输入有可能长度不一的情况下，用这个可能可以提高一点性能
         if len(s1) != len(s2):
             return False
-        
+
         c1 = [0] * 26
         c2 = [0] * 26
 
         # 统计字符出现的次数
         for i in range(len(s1)):
             c1[ord(s1[i]) - ord('a')] += 1
-            c2[ord(s2[i]) - ord('a')] += 1
+            c2[ord(s1[i]) - ord('a')] += 1
 
         # 对比统计结果
         for i in range(26):
@@ -73,17 +75,14 @@ class Solution:
         return True
 
 
-
-
-
 if __name__ == '__main__':
     solution = Solution()
 
-    print(solution.anagramSolution("heart", "earth"), " == True")
-    print(solution.anagramSolution("python", "typhon"), " == True")
-    print(solution.anagramSolution("qwert", "qwertg"), " == False")
+    print(solution.isAnagram("heart", "earth"), " == True")
+    print(solution.isAnagram("python", "typhon"), " == True")
+    print(solution.isAnagram("qwert", "qwertg"), " == False")
 
-    print(solution.anagramSolution2("heart", "earth"), " == True")
-    print(solution.anagramSolution2("python", "typhon"), " == True")
-    print(solution.anagramSolution2("qwert", "qwertg"), " == False")
-        
+    print(solution.isAnagram2("heart", "earth"), " == True")
+    print(solution.isAnagram2("python", "typhon"), " == True")
+    print(solution.isAnagram2("qwert", "qwertg"), " == False")
+
