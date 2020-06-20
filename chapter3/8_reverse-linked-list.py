@@ -33,7 +33,9 @@ class Solution:
 
         思路：
         1. 用两个指针，一个指针指向新链（初始为None），一个指向原链（初始为head）；
-        2. 从头往后依次遍历，进行反挂
+        2. 从头往后依次遍历，进行反挂；
+        
+        tip:跟着代码执行的流程，画个图，很快就能get到代码的实现思路了
         """
         cur = None
         while head is not None:
