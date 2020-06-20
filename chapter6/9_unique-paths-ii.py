@@ -43,7 +43,7 @@ class Solution:
             f(i, j) = f(i + 1, j) + f(i, j + 1)    i+1 < m && j+1 < n && obstacleGrid[i][j] != 1
                       f(i + 1, j)                  i+1 < m && j+1 == n && obstacleGrid[i][j] != 1
                       f(i, j + 1)                  i+1 == m && j+1 < n && obstacleGrid[i][j] != 1
-                      0                            (i+1 == m && j+1 == n) || obstacleGrid[i][j] != 1
+                      0                            (i+1 == m && j+1 == n) || obstacleGrid[i][j] == 1
         """
         m, n = len(obstacleGrid), len(obstacleGrid[0])
         dp = [[0 for i in range(n)] for i in range(m)]
