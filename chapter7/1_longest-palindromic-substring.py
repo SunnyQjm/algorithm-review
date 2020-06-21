@@ -42,7 +42,7 @@ class Solution:
         for i in range(2, len(s)):
             for j in range(0, len(s) - i):
                 if dp[j + 1][j + i - 1] and s[j] == s[j + i]:
-                    find, resultStart, resultEnd, dp[j][j + i] = True, j, j + i + 1, True
+                    resultStart, resultEnd, dp[j][j + i] = j, j + i + 1, True
         return s[resultStart: resultEnd]
 
 
