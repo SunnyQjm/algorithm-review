@@ -33,7 +33,7 @@ class Solution:
         2. dp[i][j] => 表示triangle[i][j]（i,j从0开始）到达底部所需的最小路径和(这边可以复用triangle作为dp数组)
         3. 状态转移方程：
             f(i, j) = triangle[i][j]                                        j = n - 1
-                   triangle[i][j] + min{f(i, j + 1), f(i + 1, j + 1)}       j < n - 1
+                   triangle[i][j] + min{f(i + 1, j), f(i + 1, j + 1)}       j < n - 1
         """
         for i in range(len(triangle) - 2, -1, -1):
             for j in range(len(triangle[i])):
