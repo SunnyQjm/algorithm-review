@@ -315,3 +315,84 @@ if __name__ == '__main__':
 | 插入排序 | **在第二层循环体之前记录当前要插入的元素的下标，在第二个循环体内部用类冒泡的方式将其插入到合适的位置，第二个循环体之后无需操作** |    是    | $O(n)$   | $O(n^2)$ | $O(n^2)$ |
 
 > - 上述所说代码特征是一些常用实现的写法有的，但是也有一些奇葩实现法可能特征不一样（PPT中的插入排序实现就和这边特征不一样）
+
+## 5. 快速排序
+
+主要思想：
+
+1. 从序列中取出一个数作为基准数（`pivot`）;
+2. 接着将序列中所有比基准数大的放在基准数的右边，把所有小于等于基准数的放在左边，具体流程如下：
+   - 假设序列A的长度为n，我们选第一个数未基准数（基准数的选择有很多方式，简单起见，每次都选择序列的第一个数作为基准数）
+   - 用两个指针，left 指向序列的第一个数，right 指向序列的最后一个元素；
+   - 使用right指针从右往左找到第一个小于pivot的数，使用left指针从左往右找到第一个大于pivot的数；
+   - 就交换两个指针所指的数，重复上述过程，直到left == right
+3. 接着对基准数左边的序列和右边的序列分别重复1~2步；
+
+```python
+def quickSort(A):
+    def quickSortHelper(A, l, r):
+        if l >= r:
+            return
+        i, j, pivotIndex = l, r, l
+        while i < j:
+            while i < j and A[j] >= A[pivotIndex]:
+                j -= 1
+            while i < j and A[i] <= A[pivotIndex]:
+                i += 1
+            A[i], A[j] = A[j], A[i]
+        A[i], A[pivotIndex] = A[pivotIndex], A[i]
+        quickSortHelper(A, l, i - 1)
+        quickSortHelper(A, i + 1, j)
+
+    quickSortHelper(A, 0, len(A) - 1)
+
+
+if __name__ == '__main__':
+    A = [5, 7, 1, 3, 6, 2, 4]
+    quickSort(A)
+    print(A, "= [1, 2, 3, 4, 5, 6, 7]")
+```
+
+## 6. 归并排序
+
+主要思想：
+
+1. 将序列分成两部分；
+2. 对两部分分别递归调用归并排序进行排序；
+3. 然后对各自有序的两部分进行归并：
+   - 使用 `leftHalf` 和 `rightHalf` 分别存储两个有序的子序列；
+   - 然后依次对比两个子序列，将其合并到原序列当中成为一个整体的有序序列；
+
+```python
+def mergeSort(A):
+    def merge(A, l, m, r):
+        leftHalf, rightHalf, i, j, k = A[l: m + 1], A[m + 1: r + 1], 0, 0, l
+        while i < len(leftHalf) and j < len(rightHalf):
+            if leftHalf[i] <= rightHalf[j]:
+                A[k], i, k = leftHalf[i], i + 1, k + 1
+            else:
+                A[k], j, k = rightHalf[j], j + 1, k + 1
+        while i < len(leftHalf):
+            A[k], i, k = leftHalf[i], i + 1, k + 1
+        while j < len(rightHalf):
+            A[k], j, k = rightHalf[j], j + 1, k + 1
+
+    def mergeSortHelper(A, l, r):
+        if l >= r:
+            return
+        m = (l + r) // 2
+        mergeSortHelper(A, l, m)
+        mergeSortHelper(A, m + 1, r)
+        merge(A, l, m, r)
+
+    mergeSortHelper(A, 0, len(A) - 1)
+
+
+if __name__ == '__main__':
+    A = [5, 7, 1, 3, 6, 2, 4]
+    mergeSort(A)
+    print(A, "= [1, 2, 3, 4, 5, 6, 7]")
+```
+
+
+
