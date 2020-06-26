@@ -108,11 +108,16 @@ class Solution:
     def maxSlidingWindow2(self, nums, k):
         if not nums:
             return []
+        # window是一个双向队列
+        # res记录结果
         window, res = [], []
 
         for i, x in enumerate(nums):
+            # 如果当前window中的元素已经有k个了，首先pop掉一个最先入队的元素
             if i >= k and window[0] <= i - k:
                 window.pop(0)
+
+            # 将比待插入值小的都右出队
             while window and nums[window[-1]] <= x:
                 window.pop()
             window.append(i)
