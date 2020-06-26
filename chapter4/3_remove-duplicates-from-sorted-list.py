@@ -35,17 +35,14 @@ class Solution:
         (Knowledge)
 
         1. 用两个指针，pre指向当前遍历节点的前一个节点，cur指向当前节点；
-        2. 用last记录上一次访问的数字；
-        3. 每次查看当前值和上一次访问的数字是否相同，相同则执行删除节点操作，不相同则更新last和两个指针
-        
-        （讲真，感觉last有点冗余hhh，直接pre.val好像可以替代last）
+        2. 每次查看当前值和上一次访问的数字是否相同，相同则执行删除节点操作，不相同则两个指针右移
         """
         if not head:
             return None
-        pre, last, cur = head, head.val, head.next
-        
+        pre, cur = head, head.next
+
         while cur:
-            if cur.val == last:
+            if cur.val == pre.val:
                 pre.next = cur.next
             else:
                 last, pre = cur.val, cur

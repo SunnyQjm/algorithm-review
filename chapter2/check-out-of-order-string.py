@@ -86,4 +86,3 @@ if __name__ == '__main__':
     print(solution.anagramSolution2("heart", "earth"), " == True")
     print(solution.anagramSolution2("python", "typhon"), " == True")
     print(solution.anagramSolution2("qwert", "qwertg"), " == False")
-        

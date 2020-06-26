@@ -31,7 +31,7 @@
 #######################################################################################
 
 import collections
-    
+
 
 class Solution:
     def maxSlidingWindow(self, nums, k):
@@ -105,9 +105,28 @@ class Solution:
 
         return res
 
+    def maxSlidingWindow2(self, nums, k):
+        if not nums:
+            return []
+        window, res = [], []
+
+        for i, x in enumerate(nums):
+            if i >= k and window[0] <= i - k:
+                window.pop(0)
+            while window and nums[window[-1]] <= x:
+                window.pop()
+            window.append(i)
+            if i >= k - 1:
+                res.append(nums[window[0]])
+        return res
+
 
 if __name__ == '__main__':
     solution = Solution()
     print(solution.maxSlidingWindow([1, 3, -1, -3, 5, 3, 6, 7], 3), "= \n[3, 3, 5, 5, 6, 7]")
     print(solution.maxSlidingWindow([1, 3, 1, 2, 0, 5], 3), "= \n[3, 3, 2, 5]")
     print(solution.maxSlidingWindow([9, 10, 9, -7, -4, -8, 2, -6], 5), "= \n[10, 10, 9, 2]")
+
+    print(solution.maxSlidingWindow2([1, 3, -1, -3, 5, 3, 6, 7], 3), "= \n[3, 3, 5, 5, 6, 7]")
+    print(solution.maxSlidingWindow2([1, 3, 1, 2, 0, 5], 3), "= \n[3, 3, 2, 5]")
+    print(solution.maxSlidingWindow2([9, 10, 9, -7, -4, -8, 2, -6], 5), "= \n[10, 10, 9, 2]")

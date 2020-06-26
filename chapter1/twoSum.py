@@ -18,7 +18,6 @@ class Solution:
             if target - tmp in remain:
                 return [i, remain.index(target - tmp) + i + 1]
 
-
     ################################################
     #### 解法2
     ################################################
@@ -35,6 +34,7 @@ class Solution:
                 dict[nums[i]] = i
             else:
                 return [dict[target - nums[i]], i]
+
 
 if __name__ == '__main__':
     solution = Solution()

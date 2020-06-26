@@ -67,7 +67,6 @@ class Solution:
                         result, miniGap = tmp, abs(target - tmp)
         return result
 
-
     def threeSumClosest2(self, nums, target):
         """
         :type nums: List[int]
@@ -102,9 +101,9 @@ class Solution:
             first = nums[i]
             left, right = i + 1, len(nums) - 1
             while left < right:
-                tmp  = first + nums[left] + nums[right]
+                tmp = first + nums[left] + nums[right]
                 if abs(target - tmp) < miniGap:
-                        result, miniGap = tmp, abs(target - tmp)
+                    result, miniGap = tmp, abs(target - tmp)
                 if tmp < target:
                     left += 1
                 elif tmp > target:
@@ -112,9 +111,6 @@ class Solution:
                 else:
                     return tmp
         return result
-
-
-    
 
 
 if __name__ == '__main__':

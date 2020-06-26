@@ -19,7 +19,7 @@ class ListNode:
     def __init__(self, x):
         self.val = x
         self.next = None
-    
+
     def __repr__(self):
         if self:
             return "{}->{}".format(self.val, repr(self.next))
@@ -41,6 +41,7 @@ class Solution:
         while head is not None:
             head.next, cur, head = cur, head, head.next
         return cur
+
 
 if __name__ == '__main__':
     head = ListNode(1)
