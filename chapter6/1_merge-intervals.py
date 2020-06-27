@@ -42,7 +42,7 @@ class Solution:
         while next < len(intervals):
             if intervals[next][0] > intervals[cur][1]:  # 处理没有重叠的情况
                 intervals[cur + 1], cur, next = intervals[next], cur + 1, next + 1
-            else:   # 处理有重叠的情况
+            else:  # 处理有重叠的情况
                 intervals[cur][1], next = max(intervals[cur][1], intervals[next][1]), next + 1
 
         return intervals[:cur + 1]
@@ -52,4 +52,3 @@ if __name__ == '__main__':
     solution = Solution()
     print(solution.merge([[1, 3], [2, 6], [8, 10], [15, 18]]), "= [[1, 6], [8, 10], [15, 18]]")
     print(solution.merge([[1, 4], [4, 5]]), "= [[1, 5]]")
-        

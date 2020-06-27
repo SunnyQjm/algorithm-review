@@ -34,7 +34,7 @@ class Solution:
             0  n == 0
             min{f(n - c) + 1 | c ∈ coins}
         """
-        
+
         dp = [amount + 1 for i in range(amount + 1)]
 
         dp[0] = 0
@@ -51,4 +51,3 @@ if __name__ == '__main__':
     solution = Solution()
     print(solution.coinChange([1, 2, 5], 11), "= 3")
     print(solution.coinChange([2], 3), "= -1")
-    

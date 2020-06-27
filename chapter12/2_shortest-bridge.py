@@ -27,6 +27,7 @@
 
 from typing import List
 
+
 class Solution:
     def shortestBridge(self, A: List[List[int]]) -> int:
         """
@@ -55,7 +56,6 @@ class Solution:
             dfs(i, j + 1, queue)
             return
 
-
         # 通过dfs找到第一座岛屿
         find = False
         for i in range(n):
@@ -68,7 +68,7 @@ class Solution:
                 break
 
         # 通过BFS搜索另一个岛屿
-        s = 0   # 轮数
+        s = 0  # 轮数
         while queue:
             for _ in range(len(queue)):
                 i, j = queue.pop(0)
@@ -87,6 +87,8 @@ class Solution:
 
 if __name__ == '__main__':
     solution = Solution()
-    print(solution.shortestBridge([[0 ,1], [1, 0]]), "= 1")
-    print(solution.shortestBridge([[0 ,1, 0], [0, 0, 0], [0, 0, 1]]), "= 2")
-    print(solution.shortestBridge([[1, 1, 1, 1, 1], [1, 0, 0, 0, 1], [1, 0, 1, 0, 1], [1, 0, 0, 0, 1], [1, 1, 1, 1, 1]]), "= 1")
+    print(solution.shortestBridge([[0, 1], [1, 0]]), "= 1")
+    print(solution.shortestBridge([[0, 1, 0], [0, 0, 0], [0, 0, 1]]), "= 2")
+    print(
+        solution.shortestBridge([[1, 1, 1, 1, 1], [1, 0, 0, 0, 1], [1, 0, 1, 0, 1], [1, 0, 0, 0, 1], [1, 1, 1, 1, 1]]),
+        "= 1")

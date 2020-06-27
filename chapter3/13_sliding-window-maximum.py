@@ -117,7 +117,7 @@ class Solution:
             if i >= k and window[0] <= i - k:
                 window.pop(0)
 
-            # 将比待插入值小的都右出队
+            # 将比待插入值小的右出队
             while window and nums[window[-1]] <= x:
                 window.pop()
             window.append(i)

@@ -42,9 +42,9 @@ class Solution:
             - maxV => 在反向遍历过程中，记录的已遍历部分的最高价格
             - 状态转移方程：
                 dp[i] = 0                                   i == n - 1
-                      = max(dp[i + 1], max - prices[i])     i < n - 1
+                      = max(dp[i + 1], maxV - prices[i])     i < n - 1
         2. 接着进行正向遍历, 计算[0:i]范围内完成一次交易最多可得多少收益：
-            - min => 记录在正向遍历过程中，已遍历部分的最低价格
+            - minV => 记录在正向遍历过程中，已遍历部分的最低价格
             - last => 记录[0:i-1]范围内完成一次交易最多可得多少收益
             - 状态转移方程：
                 cur = 0                                     i == 0
@@ -67,12 +67,12 @@ class Solution:
                 maxV = prices[i]
 
         # 正向遍历初始化
-        last, min, result = 0, prices[0], 0
+        last, minV, result = 0, prices[0], 0
         for i in range(1, len(prices)):
-            cur = max(last, prices[i] - min)
+            cur = max(last, prices[i] - minV)
             last, result = cur, max(result, cur + dp[i + 1])
-            if prices[i] < min:
-                min = prices[i]
+            if prices[i] < minV:
+                minV = prices[i]
 
         return result
 

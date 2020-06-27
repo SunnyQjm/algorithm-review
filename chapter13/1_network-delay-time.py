@@ -11,8 +11,10 @@
 #
 #######################################################################################
 
+import collections
+import heapq
 from typing import List
-import collections, heapq
+
 
 class Solution:
     def networkDelayTime(self, times: List[List[int]], N: int, K: int) -> int:
@@ -34,11 +36,10 @@ class Solution:
         for u, v, w in times:
             graph[u][v] = w
 
-
         visited = {}
 
         # 一个最小堆，用来存储Dijkstra算法执行过程中的候选节点
-        pq = [(0, K)]   
+        pq = [(0, K)]
 
         while pq:
             distance, node = heapq.heappop(pq)
@@ -60,4 +61,4 @@ class Solution:
 
 if __name__ == '__main__':
     solution = Solution()
-    print(solution.networkDelayTime([[2,1,1],[2,3,1],[3,4,1]], 4, 2), "= 2")
+    print(solution.networkDelayTime([[2, 1, 1], [2, 3, 1], [3, 4, 1]], 4, 2), "= 2")

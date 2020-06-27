@@ -55,7 +55,7 @@ class Solution:
 
         # 结束标记
         END = (1 << N) - 1
-        
+
         # 初始以图中所有节点为出发点
         queue = [(1 << i, i) for i in range(N)]
 
@@ -90,5 +90,5 @@ class Solution:
 
 if __name__ == '__main__':
     solution = Solution()
-    print(solution.shortestPathLength([[1,2,3],[0],[0],[0]]), "= 4")
-    print(solution.shortestPathLength([[1],[0,2,4],[1,3,4],[2],[1,2]]), "= 4")
+    print(solution.shortestPathLength([[1, 2, 3], [0], [0], [0]]), "= 4")
+    print(solution.shortestPathLength([[1], [0, 2, 4], [1, 3, 4], [2], [1, 2]]), "= 4")

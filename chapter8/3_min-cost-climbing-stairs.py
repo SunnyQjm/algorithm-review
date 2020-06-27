@@ -36,7 +36,7 @@ class Solution:
         3. base case => dp[0] = cost[0], dp[1] = cost[1]
         4. 状态转移方程：
             f(i) = cost[i]                                                  i == 0 || i == 1
-                   min{cost[i - 1] + cost[i], cost[i - 2] + cost[i]}        i > 1
+                   cost[i] + min{cost[i - 1], cost[i - 2]}                  i > 1
         """
 
         # 最末尾添加一个开销为0的虚拟阶梯，代表楼顶，我们的目标就是要到达这个楼顶

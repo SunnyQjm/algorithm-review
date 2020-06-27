@@ -33,7 +33,7 @@ class Solution:
 
         思路：
         1. 直接用两个指针，sPtr指向短串s，tPtr指向长串t；
-        2. 依次按需再长串中找到子串中的每一个字符，都找到返回true，否则返回false
+        2. 依次按需在长串中找到子串中的每一个字符，都找到返回true，否则返回false
         """
         if len(s) > len(t):
             return False

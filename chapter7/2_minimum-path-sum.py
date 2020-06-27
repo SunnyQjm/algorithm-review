@@ -45,7 +45,6 @@ class Solution:
         for j in range(n - 2, -1, -1):
             grid[m - 1][j] += grid[m - 1][j + 1]
 
-        
         for i in range(m - 2, -1, -1):
             for j in range(n - 2, -1, -1):
                 grid[i][j] += min(grid[i + 1][j], grid[i][j + 1])

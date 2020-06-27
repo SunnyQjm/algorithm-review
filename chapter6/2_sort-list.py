@@ -19,7 +19,7 @@ class ListNode:
     def __init__(self, x):
         self.val = x
         self.next = None
-    
+
     def __repr__(self):
         if self:
             return "{}->{}".format(self.val, repr(self.next))
@@ -41,7 +41,7 @@ class Solution:
         # 链表为空或者只有一个元素，直接返回
         if not head or not head.next:
             return head
-        
+
         # low -> 右子链的头部
         # pre -> 左子链最后一个节点（未断开之前，指向low）
         low, fast, pre = head, head, None
@@ -58,7 +58,7 @@ class Solution:
         # 对排好序的两部分进行归并
         if not low:
             return head
-        
+
         result, cur = self, None
         while head and low:
             if head.val <= low.val:
@@ -83,9 +83,3 @@ if __name__ == '__main__':
     h1.next.next = ListNode(1)
     h1.next.next.next = ListNode(3)
     print(solution.sortList(h1), "= 1->2->3->4")
-
-
-
-
-
-

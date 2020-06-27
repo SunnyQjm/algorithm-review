@@ -38,7 +38,6 @@ class Solution:
         思路：
         1. 动态规划
         2. dp[i][j] => 第处于第i + 1行第j + 1列的方格，到目的地可走的路径数量
-        3. 
         3. 状态转移方程：
             f(i, j) = f(i + 1, j) + f(i, j + 1)    i+1 < m && j+1 < n && obstacleGrid[i][j] != 1
                       f(i + 1, j)                  i+1 < m && j+1 == n && obstacleGrid[i][j] != 1
