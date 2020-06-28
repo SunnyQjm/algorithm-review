@@ -23,6 +23,7 @@
 
 from typing import List
 
+
 class TreeNode:
     def __init__(self, x):
         self.val = x
@@ -57,7 +58,7 @@ class Solution:
         if not preorder:
             return None
         root = TreeNode(preorder[0])
-        
+
         # 用于记录左右子树的元素个数
         leftNum, rightNum = 0, 0
 
@@ -66,8 +67,8 @@ class Solution:
                 break
             leftNum += 1
 
-        root.left = self.buildTree(preorder[1:1+leftNum], inorder[0:leftNum])
-        root.right = self.buildTree(preorder[1+leftNum:], inorder[leftNum + 1:])
+        root.left = self.buildTree(preorder[1:1 + leftNum], inorder[0:leftNum])
+        root.right = self.buildTree(preorder[1 + leftNum:], inorder[leftNum + 1:])
         return root
 
 

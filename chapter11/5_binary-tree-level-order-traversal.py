@@ -26,6 +26,7 @@
 from typing import List
 import collections
 
+
 class TreeNode:
     def __init__(self, x):
         self.val = x
@@ -35,6 +36,7 @@ class TreeNode:
     def __repr__(self):
         if self:
             return "{}->{}->{}".format(self.val, repr(self.left), repr(self.right))
+
 
 class Solution:
     def levelOrder(self, root: TreeNode) -> List[List[int]]:
@@ -75,7 +77,7 @@ class Solution:
                 queue.append(curNode.right)
                 nextLevelNum += 1
 
-            if curLevelNum == 0:    # 判断是否换层
+            if curLevelNum == 0:  # 判断是否换层
                 curLevelNum, nextLevelNum = nextLevelNum, 0
                 # 如果下一层还有可遍历的节点，则往结果集里面新加一个空列表用来存储下一层的遍历结果
                 if curLevelNum != 0:

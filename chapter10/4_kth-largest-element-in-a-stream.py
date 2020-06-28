@@ -23,6 +23,7 @@
 
 import heapq
 
+
 class KthLargest:
 
     def __init__(self, k, nums):
@@ -31,13 +32,12 @@ class KthLargest:
         :type nums: List[int]
         """
         self.heap = nums
-        heapq.heapify(self.heap)             # 用一个列表作为堆（使用heapq对其操作）
-        self.currentSize = len(nums)                # 保存当前堆中元素的个数
+        heapq.heapify(self.heap)  # 用一个列表作为堆（使用heapq对其操作）
+        self.currentSize = len(nums)  # 保存当前堆中元素的个数
         self.k = k
         while self.currentSize > k:
             heapq.heappop(self.heap)
             self.currentSize -= 1
-
 
     def add(self, val):
         """
@@ -52,11 +52,11 @@ class KthLargest:
         3. 每次插入时执行以下流程：
             - 首先判断当前堆的大小是k还是k-1；（因为题目中指出，nums >= k-1，所以初始堆中元素个数至少为k-1，又因为我们在初始化时进行了堆删除，删到小于等于k为止，所以堆中元素最多有k个）
             - 如果currentSize == k-1，则插入当前元素到堆中，并返回堆顶元素即可；
-            - 如果currentSuze > k-1, 则将当前元素插入到堆中，接着再删除堆顶元素，并返回堆顶元素；（这样可以保证堆中元素一直是k个）
+            - 如果currentSize > k-1, 则将当前元素插入到堆中，接着再删除堆顶元素，并返回堆顶元素；（这样可以保证堆中元素一直是k个）
         """
         if self.currentSize == self.k - 1:
             heapq.heappush(self.heap, val)
-            self.size += 1
+            self.currentSize += 1
         else:
             heapq.heappush(self.heap, val)
             heapq.heappop(self.heap)
@@ -71,4 +71,3 @@ if __name__ == '__main__':
     print(kthLargest.add(10), "= 5")
     print(kthLargest.add(9), "= 8")
     print(kthLargest.add(4), "= 8")
-

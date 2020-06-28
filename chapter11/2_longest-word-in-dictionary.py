@@ -29,6 +29,7 @@
 
 from typing import List
 
+
 class Solution:
     def longestWord(self, words: List[str]) -> str:
         """
@@ -44,7 +45,7 @@ class Solution:
         4. 最后对valid进行按字典序排序，然后返回长度最大的元素即可
         """
 
-        valid = set([""])
+        valid = {""}
 
         for word in sorted(words, key=len):
             if word[:-1] in valid:

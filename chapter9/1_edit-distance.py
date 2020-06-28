@@ -44,7 +44,8 @@ class Solution:
         2. 定义状态：dp[i][j] => word1前i个字符构成的子串与word2前j个字符构成的子串的编辑距离；
         3. base case => dp[i][0] = i, dp[0][j] = j => 表示其中一个子串为空的情形
         4. 状态转移方程：
-            f(i, j) =   0                             i == 0 || j == 0
+            f(i, j) =   j                             i == 0
+                        i                             j == 0
                         f(i - 1, j - 1)               i > 0 && j > 0 && word1[i] == word2[j]
                         min {                         i > 0 && j > 0 && word1[i] != word2[j]  
                             f(i - 1, j) + 1,

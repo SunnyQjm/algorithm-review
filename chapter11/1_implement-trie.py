@@ -21,10 +21,12 @@
 #   - 保证所有输入均为非空字符串。
 #######################################################################################
 
+
 class TreeNode:
     def __init__(self):
-        self.word = False       # 表示当前节点是否是一个曾经插入的单词
-        self.children = {}      # 子节点列表
+        self.word = False  # 表示当前节点是否是一个曾经插入的单词
+        self.children = {}  # 子节点列表
+
 
 class Trie:
 
@@ -34,7 +36,6 @@ class Trie:
         """
         self.root = TreeNode()
 
-
     def insert(self, word: str) -> None:
         """
         Inserts a word into the trie.
@@ -42,11 +43,10 @@ class Trie:
         # 从根节点出发
         node = self.root
         for char in word:
-            if char not in node.children:           # 判断当前字符是否在当前节点的子节点里面，不在，则创建一个子节点
+            if char not in node.children:  # 判断当前字符是否在当前节点的子节点里面，不在，则创建一个子节点
                 node.children[char] = TreeNode()
-            node = node.children[char]              # 跳到对应的子节点
+            node = node.children[char]  # 跳到对应的子节点
         node.word = True
-
 
     def search(self, word: str) -> bool:
         """
@@ -59,7 +59,6 @@ class Trie:
             node = node.children[char]
         return node.word
 
-
     def startsWith(self, prefix: str) -> bool:
         """
         Returns if there is any word in the trie that starts with the given prefix.
@@ -70,7 +69,6 @@ class Trie:
                 return False
             node = node.children[char]
         return True
-
 
 
 # Your Trie object will be instantiated and called as such:

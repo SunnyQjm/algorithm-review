@@ -7,8 +7,10 @@
 # 题目太长了，瞅这 => https://leetcode-cn.com/problems/cheapest-flights-within-k-stops/
 #######################################################################################
 
+import collections
+import heapq
 from typing import List
-import collections, heapq
+
 
 class Solution:
     def findCheapestPrice(self, n: int, flights: List[List[int]], src: int, dst: int, K: int) -> int:

@@ -49,8 +49,8 @@ class Solution:
                 return
             if not root.left and not root.right:
                 result.append(s + "->" + str(root.val))
-            preOrderTraversal(root.left, s + "->" + str(root.val), result)
-            preOrderTraversal(root.right, s + "->" + str(root.val), result)
+            preorderTraversal(root.left, s + "->" + str(root.val), result)
+            preorderTraversal(root.right, s + "->" + str(root.val), result)
 
         if not root:
             return []
@@ -58,6 +58,6 @@ class Solution:
             return [str(root.val)]
         s = str(root.val)
         result = []
-        preOrderTraversal(root, s, result)
+        preorderTraversal(root, s, result)
         return result
 

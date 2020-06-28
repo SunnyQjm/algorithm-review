@@ -54,3 +54,25 @@ class Solution:
 
         result = []
         return _preorderTraversal(root, result)
+
+    def preorderTraversal2(self, root):
+        """
+        :type root: TreeNode
+        :rtype List[int]
+
+        (knowledge)
+
+        非递归解法
+        思路：
+        1. 使用一个列表记录遍历过的值；
+        2. 每次访问当前值，并将右左子树入栈；
+        """
+        result, stack = [], [root]
+        while stack:
+            node = stack.pop()
+            if not node:
+                continue
+            result.append(node.val)
+            stack.append(node.right)
+            stack.append(node.left)
+        return result

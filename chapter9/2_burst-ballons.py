@@ -48,16 +48,14 @@ class Solution:
         # 在前后各添加一个不能戳破的假气球，其值为1
         nums.insert(0, 1)
         nums.append(1)
-        
+
         # 初始化dp数组
         dp = [[0] * (length + 2) for i in range(length + 2)]
 
-        # 从下往上，从左往右遍历
-        for i in range(length, -1, -1):
-            for j in range(i + 2, length + 2):
-                for k in range(i + 1, j):
-                    dp[i][j] = max(dp[i][j], dp[i][k] + dp[k][j] + nums[i] * nums[k] * nums[j])
-        
+        for i in range(2, length + 2):
+            for j in range(0, length + 2 - i):
+                dp[j][j + i] = max((dp[j][k] + dp[k][j + i] + nums[j] * nums[k] * nums[j + i]) for k in range(j + 1, j + i))
+
         return dp[0][-1]
 
 
