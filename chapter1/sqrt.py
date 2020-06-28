@@ -2,12 +2,12 @@
 # coding=utf-8
 
 
-################################################################3
+################################################################
 # LeetCode: 69 Sqrt(x)
 # Implement int sqrt(int x).
 # Compute and return the square root of x, where x is guaranteedto be a non-negative integer.
 # Since the return type is an integer, the decimal digits aretruncated and only the integer part of the result is returned.
-################################################################3
+################################################################
 
 class Solution:
     def mySqrt(self, x):

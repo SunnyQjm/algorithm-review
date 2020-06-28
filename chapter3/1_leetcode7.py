@@ -36,12 +36,12 @@ class Solution:
         3. 将|x|从个位开始向左遍历，依次叠加到结果里面；
         4. 最后判断结果是否溢出（与32位有符号整形的最大值和最小值进行比对）
         """
-        isNegitive = -1 if x < 0 else 1
+        isNegative = -1 if x < 0 else 1
         result, x = 0, abs(x)
         while x > 0:
             result = result * 10 + x % 10
             x = x // 10
-        result = isNegitive * result
+        result = isNegative * result
 
         return 0 if result > INT_MAX_VAL or result < INT_MIN_VAL else result
 
