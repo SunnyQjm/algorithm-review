@@ -31,6 +31,7 @@
 #   返回 false 。
 #######################################################################################
 
+
 class TreeNode:
     def __init__(self, x):
         self.val = x
@@ -55,6 +56,7 @@ class Solution:
         2. 根据AVL树的特性，如果任意一个节点的左右子树的高度差大于一，则该树不是AVL树，标记器高度为-1;
         3. 如果某个子树的高度计算为-1,则表示该子树不是AVL树，-1会一直传递到顶层。
         """
+
         def preOrderTraversal(root):
             if not root:
                 return 0
@@ -63,4 +65,5 @@ class Solution:
             if leftNum == -1 or rightNum == -1 or abs(leftNum - rightNum) > 1:
                 return -1
             return 1 + max(leftNum, rightNum)
+
         return preOrderTraversal(root) != -1

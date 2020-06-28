@@ -28,6 +28,7 @@ class TreeNode:
         self.left = None
         self.right = None
 
+
 class Solution:
     def hasPathSum(self, root, sum):
         """
@@ -64,4 +65,3 @@ if __name__ == '__main__':
     root.right.right = TreeNode(4)
     root.right.right.right = TreeNode(1)
     print(solution.hasPathSum(root, 22), "= True")
-

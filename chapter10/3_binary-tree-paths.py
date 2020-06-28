@@ -21,6 +21,7 @@
 #   解释: 所有根节点到叶子节点的路径为: 1->2->5, 1->3
 #######################################################################################
 
+
 class TreeNode:
     def __init__(self, x):
         self.val = x
@@ -44,6 +45,7 @@ class Solution:
         1. 递归的进行先序遍历，过程中记录走过的路径；
         2. 当遍历到一个叶子节点时，将当前路径添加到结果集当中；
         """
+
         def preorderTraversal(root, s, result):
             if not root:
                 return
@@ -60,4 +62,3 @@ class Solution:
         result = []
         preorderTraversal(root, s, result)
         return result
-

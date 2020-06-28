@@ -59,6 +59,7 @@ class Solution:
         2. 如果找到一个节点，其值大于等于left.val，且小于等于right.val，则该节点即为要求的结果
         3. 如果当前节点不是目标节点，则对左右子树进行递归遍历
         """
+
         def preOrderTraversal(root, left, right):
             if not root or (left.val <= root.val <= right.val):
                 return root
@@ -70,5 +71,3 @@ class Solution:
         left = p if p.val < q.val else q
         right = p if p.val >= q.val else q
         return preOrderTraversal(root, left, right)
-
-

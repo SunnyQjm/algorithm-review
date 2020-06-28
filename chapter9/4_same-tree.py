@@ -35,6 +35,7 @@
 #   输出: false
 #######################################################################################
 
+
 class TreeNode:
     def __init__(self, x):
         self.val = x
@@ -58,7 +59,7 @@ class Solution:
         if not p or not q:
             if not q and not p:
                 return True
-            else: 
+            else:
                 return False
 
         if p.val != q.val:
@@ -83,4 +84,3 @@ if __name__ == '__main__':
     q = TreeNode(1)
     q.right = TreeNode(2)
     print(solution.isSameTree(p, q), "= False")
-

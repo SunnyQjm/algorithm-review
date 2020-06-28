@@ -30,12 +30,11 @@
 # param_1 = obj.book(start,end)
 
 class MyCalendar:
-    
+
     def __init__(self):
         # 定义一个数组，用于记录行程
         self.calendar = []
 
-    
     def book(self, start, end):
         """
         :type start: int
