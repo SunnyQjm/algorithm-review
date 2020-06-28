@@ -18,6 +18,7 @@
 # 进阶: 你能将算法的时间复杂度降低到 O(n log n) 吗?
 #######################################################################################
 
+
 class Solution:
     def lengthOfLIS(self, nums):
         """
@@ -37,7 +38,7 @@ class Solution:
         if not nums:
             return 0
         length = len(nums)
-        dp, result = [1 for i in range(length)], 1
+        dp = [1 for i in range(length)]
 
         for i in range(length - 2, -1, -1):
             for j in range(i + 1, length):
@@ -49,4 +50,3 @@ class Solution:
 if __name__ == '__main__':
     solution = Solution()
     print(solution.lengthOfLIS([10, 9, 2, 5, 3, 7, 101, 18]), "= 4")
-

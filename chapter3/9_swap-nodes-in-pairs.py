@@ -8,11 +8,12 @@
 # 你不能只是单纯的改变节点内部的值，而是需要实际的进行节点交换。
 ###############################################################################
 
+
 class ListNode:
     def __init__(self, x):
         self.val = x
         self.next = None
-    
+
     def __repr__(self):
         if self:
             return "{}->{}".format(self.val, repr(self.next))

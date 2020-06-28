@@ -20,7 +20,7 @@ class ListNode:
     def __init__(self, x):
         self.val = x
         self.next = None
-    
+
     def __repr__(self):
         if self:
             return "{}->{}".format(self.val, repr(self.next))
@@ -57,7 +57,7 @@ if __name__ == '__main__':
     h1.next = ListNode(1)
     h1.next.next = ListNode(2)
     print(solution.deleteDuplicates(h1), "= 1->2")
-    
+
     h1 = ListNode(1)
     h1.next = ListNode(1)
     h1.next.next = ListNode(2)

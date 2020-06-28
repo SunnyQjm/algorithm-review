@@ -7,6 +7,7 @@
 
 import collections
 
+
 class Solution:
     def palchecker(self, str):
         """
@@ -24,7 +25,7 @@ class Solution:
         # 将所有字符入队
         for c in str:
             dqueue.append(c)
-        
+
         # 依次判断首尾字符是否相同
         while len(dqueue) > 1:
             if dqueue.pop() != dqueue.popleft():
@@ -38,4 +39,3 @@ if __name__ == '__main__':
     print(solution.palchecker("qwertgtrewq"), "= True")
     print(solution.palchecker("a"), "= True")
     print(solution.palchecker("abcbc"), "= False")
-

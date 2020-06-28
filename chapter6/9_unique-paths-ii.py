@@ -27,6 +27,7 @@
 #   2. 向下 -> 向下 -> 向右 -> 向右
 #######################################################################################
 
+
 class Solution:
     def uniquePathsWithObstacles(self, obstacleGrid):
         """
@@ -63,4 +64,3 @@ class Solution:
 if __name__ == '__main__':
     solution = Solution()
     print(solution.uniquePathsWithObstacles([[0, 0, 0], [0, 1, 0], [0, 0, 0]]), "= 2")
-

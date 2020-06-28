@@ -39,7 +39,6 @@ class Solution:
         return left - 1
 
 
-
 if __name__ == '__main__':
     solution = Solution()
     print(solution.mySqrt(9))

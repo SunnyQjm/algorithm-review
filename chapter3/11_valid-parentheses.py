@@ -67,4 +67,3 @@ if __name__ == '__main__':
     print(solution.isValid("(]"), "= False")
     print(solution.isValid("([)]"), "= False")
     print(solution.isValid("{()}"), "= True")
-

@@ -29,6 +29,7 @@
 
 import collections
 
+
 class Solution:
     def convert(self, s, numRows):
         """
@@ -49,14 +50,14 @@ class Solution:
         if numRows == 1:
             return s
 
-        lines = [[]  for i in range(numRows)]
-        
+        lines = [[] for i in range(numRows)]
+
         # 当前的方向（首先向下，触底向上，触顶向下，依次改变方向）
         goDown = True
 
         # 下一个字符要写入的行号，初始为0,根据方向进行更新，向下则+1,向上则-1
         lineNumber = 0
-        
+
         # 依次遍历字符串，按Z字型顺序写到合适的行
         for i in range(len(s)):
             lines[lineNumber].append(s[i])
@@ -66,7 +67,7 @@ class Solution:
                 goDown = False
             if not goDown and lineNumber == 0:
                 goDown = True
-            
+
             # 根据当前的方向更新行号
             lineNumber = lineNumber + 1 if goDown else lineNumber - 1
 
@@ -76,7 +77,6 @@ class Solution:
 
         # 将list转字符串返回
         return "".join(lines[0])
-        
 
 
 if __name__ == '__main__':

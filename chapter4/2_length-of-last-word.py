@@ -14,7 +14,8 @@
 #   输出: 5
 ##########################################################################
 
-class Solution: 
+
+class Solution:
     def lengthOfLastWord(self, s):
         """
         :type s: str

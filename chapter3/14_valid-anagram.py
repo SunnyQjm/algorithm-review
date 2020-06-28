@@ -85,4 +85,3 @@ if __name__ == '__main__':
     print(solution.isAnagram2("heart", "earth"), " == True")
     print(solution.isAnagram2("python", "typhon"), " == True")
     print(solution.isAnagram2("qwert", "qwertg"), " == False")
-

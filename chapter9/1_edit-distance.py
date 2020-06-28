@@ -29,6 +29,7 @@
 #   exection -> execution (插入 'u')
 #######################################################################################
 
+
 class Solution:
     def minDistance(self, word1, word2):
         """
@@ -47,7 +48,7 @@ class Solution:
             f(i, j) =   j                             i == 0
                         i                             j == 0
                         f(i - 1, j - 1)               i > 0 && j > 0 && word1[i] == word2[j]
-                        min {                         i > 0 && j > 0 && word1[i] != word2[j]  
+                        min {                         i > 0 && j > 0 && word1[i] != word2[j]
                             f(i - 1, j) + 1,
                             f(i, j - 1) + 1,
                             f(i - 1, j - 1) + 1

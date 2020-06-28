@@ -47,13 +47,11 @@ class MyQueue:
         # 使用两个栈来实现一个队列
         self.stack1, self.stack2 = [], []
 
-
     def push(self, x):
         """
         Push element x to the back of queue.
         """
         self.stack1.append(x)
-
 
     def pop(self):
         """
@@ -61,7 +59,6 @@ class MyQueue:
         """
         self.peek()
         return self.stack2.pop()
-
 
     def peek(self):
         """
@@ -71,7 +68,6 @@ class MyQueue:
             while self.stack1:
                 self.stack2.append(self.stack1.pop())
         return self.stack2[-1]
-
 
     def empty(self):
         """

@@ -24,6 +24,7 @@
 INT_MAX_VAL = 2147483647
 INT_MIN_VAL = -2147483648
 
+
 class Solution:
     def reverse(self, x):
         """

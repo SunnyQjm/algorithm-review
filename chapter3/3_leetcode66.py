@@ -23,6 +23,7 @@
 
 from typing import List
 
+
 class Solution:
     def plusOne(self, digits: List[int]) -> List[int]:
         """
@@ -40,7 +41,7 @@ class Solution:
         # 特判空数组的情况
         if len(digits) == 0:
             return [1]
- 
+
         needAdd = False
         for i in range(len(digits) - 1, -1, -1):
             digits[i] += 1
@@ -53,9 +54,8 @@ class Solution:
 
         if needAdd:
             digits.insert(0, 1)
-        
-        return digits
 
+        return digits
 
 
 if __name__ == '__main__':
@@ -66,4 +66,3 @@ if __name__ == '__main__':
     print(solution.plusOne([9, 9, 9]), "= [1, 0, 0, 0]")
     print(solution.plusOne([9]), "= [1, 0]")
     print(solution.plusOne([8, 9, 9, 9]), "= [9, 0, 0, 0]")
-

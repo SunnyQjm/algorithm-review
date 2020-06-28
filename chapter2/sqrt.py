@@ -11,6 +11,7 @@
 
 import math
 
+
 class Solution:
     def mySqrt(self, x):
         """
@@ -61,7 +62,6 @@ class Solution:
 
         # 根据题意，进行向下取整
         return math.floor(next)
-
 
 
 if __name__ == '__main__':

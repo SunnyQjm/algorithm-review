@@ -27,6 +27,7 @@
 #   解释: 在这种情况下, 没有交易完成, 所以最大利润为 0。
 #######################################################################################
 
+
 class Solution:
     def maxProfit(self, prices):
         """
@@ -40,11 +41,11 @@ class Solution:
             - 如果第二天比当天高，则当天买入，第二天卖出；
             - 如果第二天比当天低，则不操作；
         """
-        proft = 0
+        profit = 0
         for i in range(len(prices) - 1):
             if prices[i + 1] > prices[i]:
-                proft += (prices[i + 1] - prices[i])
-        return proft
+                profit += (prices[i + 1] - prices[i])
+        return profit
 
 
 if __name__ == '__main__':

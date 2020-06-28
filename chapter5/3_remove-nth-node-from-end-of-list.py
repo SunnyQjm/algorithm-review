@@ -17,14 +17,16 @@
 #   你能尝试使用一趟扫描实现吗？
 ###################################################################################
 
+
 class ListNode:
     def __init__(self, x):
         self.val = x
         self.next = None
-    
+
     def __repr__(self):
         if self:
             return "{}->{}".format(self.val, repr(self.next))
+
 
 class Solution:
     def removeNthFromEnd(self, head, n):
@@ -51,7 +53,7 @@ class Solution:
         while right:
             pre, left, right = left, left.next, right.next
 
-        if not pre: # 处理要删除的节点是头节点的情况
+        if not pre:  # 处理要删除的节点是头节点的情况
             return head.next
         else:
             pre.next = left.next

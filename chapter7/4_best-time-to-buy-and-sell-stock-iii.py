@@ -27,6 +27,7 @@
 #   解释: 在这个情况下, 没有交易完成, 所以最大利润为 0。
 #######################################################################################
 
+
 class Solution:
     def maxProfit(self, prices):
         """
@@ -82,4 +83,3 @@ if __name__ == '__main__':
     print(solution.maxProfit([3, 3, 5, 0, 0, 3, 1, 4]), "= 6")
     print(solution.maxProfit([1, 2, 3, 4, 5]), "= 4")
     print(solution.maxProfit([7, 6, 4, 3, 1]), "= 0")
-

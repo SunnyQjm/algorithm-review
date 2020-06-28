@@ -21,6 +21,7 @@
 #         coins =  3*1*5      +  3*5*8    +  1*3*8      + 1*8*1   = 167
 #######################################################################################
 
+
 class Solution:
     def maxCoins(self, nums):
         """
@@ -39,7 +40,7 @@ class Solution:
                       min{f(i, k) + f(k, j) + nums[i] * nums[k] * nums[j] | i < k < j}          j > i + 1
 
 
-        
+
         如何确定遍历顺序呢？
         tip：参考 =>    https://labuladong.gitbook.io/algo/dong-tai-gui-hua-xi-lie/za-qi-qiu
         """
@@ -54,7 +55,8 @@ class Solution:
 
         for i in range(2, length + 2):
             for j in range(0, length + 2 - i):
-                dp[j][j + i] = max((dp[j][k] + dp[k][j + i] + nums[j] * nums[k] * nums[j + i]) for k in range(j + 1, j + i))
+                dp[j][j + i] = max(
+                    (dp[j][k] + dp[k][j + i] + nums[j] * nums[k] * nums[j + i]) for k in range(j + 1, j + i))
 
         return dp[0][-1]
 

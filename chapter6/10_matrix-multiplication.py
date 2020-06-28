@@ -14,6 +14,7 @@
 #       A1(A2 A3): 10x100x50 + 100x5x50 = 75000
 #######################################################################################
 
+
 class Solution:
     def miniMultiplicationTimes(self, matrixs):
         """
@@ -29,7 +30,7 @@ class Solution:
            m(i, j) = 0                                                  i <= j <= i + 1
                      min(i < k < j){m(i, k) + m(k, j) + Pi*Pk*Pj}       j > i + 1
         """
-        
+
         # 初始化dp数组
         dp = [[float("inf") for i in range(len(matrixs))] for i in range(len(matrixs))]
 

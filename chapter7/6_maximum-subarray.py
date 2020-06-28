@@ -15,6 +15,7 @@
 #   如果你已经实现复杂度为 O(n) 的解法，尝试使用更为精妙的分治法求解。
 #######################################################################################
 
+
 class Solution:
     def maxSubArray(self, nums):
         """
@@ -31,11 +32,10 @@ class Solution:
                    max{f(i - 1) + nums[i], nums[i]}     i > 0
         """
         for i in range(1, len(nums)):
-            nums[i] = max(nums[i-1] + nums[i], nums[i])
+            nums[i] = max(nums[i - 1] + nums[i], nums[i])
         return max(nums)
 
 
 if __name__ == '__main__':
     solution = Solution()
     print(solution.maxSubArray([-2, 1, -3, 4, -1, 2, 1, -5, 4]), "= 6")
-

@@ -25,6 +25,7 @@
 #   解释：两个字符串没有公共子序列，返回 0。
 #######################################################################################
 
+
 class Solution:
     def longestCommonSubsequence(self, text1, text2):
         """
@@ -64,4 +65,3 @@ if __name__ == '__main__':
     print(solution.longestCommonSubsequence("abcde", "ace"), "\n= 3")
     print(solution.longestCommonSubsequence("abc", "abc"), "\n= 3")
     print(solution.longestCommonSubsequence("abc", "def"), "\n= 0")
-

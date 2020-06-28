@@ -20,13 +20,14 @@ class Queue:
         return self.items == []
 
     def enqueue(self, item):
-        self.items.insert(0,item)
+        self.items.insert(0, item)
 
     def dequeue(self):
         return self.items.pop()
 
     def size(self):
         return len(self.items)
+
 
 class Solution:
     def hotPotato(self, nameList, num):
@@ -49,7 +50,6 @@ class Solution:
             for i in range(num - 1):
                 queue.enqueue(queue.dequeue())
             print(queue.dequeue())
-
 
 
 if __name__ == '__main__':

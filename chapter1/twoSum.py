@@ -1,10 +1,11 @@
 #!/usr/bin/env python
 # coding=utf-8
 
+
 class Solution:
 
     ################################################
-    #### 解法一
+    # 解法一
     ################################################
     def twoSum(self, nums, target):
         """
@@ -19,7 +20,7 @@ class Solution:
                 return [i, remain.index(target - tmp) + i + 1]
 
     ################################################
-    #### 解法2
+    # 解法2
     ################################################
     def twoSum2(self, nums, target):
         """
