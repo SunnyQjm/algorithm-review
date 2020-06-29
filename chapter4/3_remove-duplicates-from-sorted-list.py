@@ -45,7 +45,7 @@ class Solution:
             if cur.val == pre.val:
                 pre.next = cur.next
             else:
-                last, pre = cur.val, cur
+                pre = cur
             cur = cur.next
 
         return head

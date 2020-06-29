@@ -25,6 +25,7 @@
 #   n 是 32 位有符号整数，其数值范围是 [−231, 231 − 1] 。
 ###################################################################################
 
+
 class Solution:
     def myPow(self, x, n):
         """
@@ -55,7 +56,7 @@ class Solution:
             return x * self.myPow(x, n - 1)
 
         # 处理n为偶数的情况
-        return self.myPow(x * x, n / 2)
+        return self.myPow(x * x, n // 2)
 
 
 if __name__ == '__main__':

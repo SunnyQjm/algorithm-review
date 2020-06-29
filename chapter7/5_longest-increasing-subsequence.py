@@ -30,7 +30,7 @@ class Solution:
         思路：
         nums => size = n
         1. 采用动态规划的思想；
-        2. dp[i] => 表示[i:n-1]范围内的最长的上升子序列的长度；
+        2. dp[i] => 表示[i:n-1]范围内包含nums[i]的最长的上升子序列的长度；
         3. 状态转移方程：
             f(i) = 1                                                i == n - 1
                    1 + max{f(j) | nums[j] > nums[i] && i < j < n}   i < n - 1
