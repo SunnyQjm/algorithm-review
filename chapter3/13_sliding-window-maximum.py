@@ -131,7 +131,11 @@ class Solution:
             # 将比待插入值小的右出队
             while window and nums[window[-1]] <= x:
                 window.pop()
+
+            # 将当前索引加入到队列当中
             window.append(i)
+
+            # 索引大于等于k-1时，每轮产生一个当前窗口最大值，放到结果集当中
             if i >= k - 1:
                 res.append(nums[window[0]])
         return res
